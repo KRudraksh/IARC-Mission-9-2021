@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="hunter_killer_mast">
+
+  <link name="box_base">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="20.0"/>
+      <inertia ixx="4.0" ixy="0.0" ixz="0.0" iyy="4.0" iyz="0.0" izz="4.0"/>
+    </inertial>
+    <visual name="">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="1 1 0.1"/>
+      </geometry>
+      <material name="">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+        <texture filename=""/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="1 1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="roll_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    <parent link="box_base"/>
+    <child link="base"/>
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.2"
+      upper="0.2"
+      effort="1000"
+      velocity="0.5" />
+    <dynamics damping="10" friction="1"/>
+  </joint>
+
+  <link name="base">
+    <inertial>
+      <origin
+        xyz="-0.021807112902672 0.2981157062495953 0.306152835990506"
+        rpy="0 0 0" />
+      <mass
+        value="26.67349504" />
+      <inertia
+        ixx="2.29537872450219"
+        ixy="-9.71572452120503E-19"
+        ixz="-2.66210851881018E-17"
+        iyy="4.58897921600171"
+        iyz="0"
+        izz="2.29537872450219" />
+    </inertial>
+    <collision>
+      <origin
+        xyz="-0.25 0.3 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="mast">
+    <inertial>
+      <origin
+        xyz="0 0 0.6452336017551502"
+        rpy="3.1416 -1.0464 -1.0472" />
+      <mass
+        value="3.55215387982123" />
+      <inertia
+        ixx="0.182505964653922"
+        ixy="5.27421373359982E-06"
+        ixz="0.297057435206095"
+        iyy="0.696082725150094"
+        iyz="7.26935770486992E-06"
+        izz="0.524274527718264" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0.05 0.714"
+        rpy="3.1416 -1.0464 -1.0472" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/mast.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.05 0.714"
+        rpy="3.1416 -1.0464 -1.0472" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/mast.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- temporary values  rpy="3.1416 -1.0464 -1.0472" 
+                        xyz="0.23929 -0.12715 0.7141"-->
+
+  <joint
+    name="pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="mast" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.2"
+      upper="0.2"
+      effort="1000"
+      velocity="0.5" />
+    <dynamics damping="10" friction="1"/>
+  </joint>
+
+  <link
+    name="blue_board">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0 0.00126999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.198283474399999" />
+      <inertia
+        ixx="0.00129001264777298"
+        ixy="1.95088712527377E-19"
+        ixz="-7.07133320416532E-36"
+        iyy="0.00129001264777298"
+        iyz="1.36369182639755E-21"
+        izz="0.00257981208793538" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/blue_board.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/blue_board.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="blue_board_joint"
+    type="fixed">
+    <origin
+      xyz="-0.01 -0.13 1.05"
+      rpy="1.570796 0 0" />
+    <parent
+      link="mast" />
+    <child
+      link="blue_board" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <link name="name_plate">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 0.000126999999999988 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00360515407999968" />
+      <inertia
+        ixx="7.75319784594255E-07"
+        ixy="4.48415508583941E-40"
+        ixz="-1.44850079896059E-22"
+        iyy="2.42281375651312E-05"
+        iyz="7.94251067970232E-26"
+        izz="2.3452856545557E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/name_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.988235294117647 0.737254901960784 0.517647058823529 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/name_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="name_plate_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.08382 0.002794"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="blue_board" />
+    <child
+      link="name_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link name="buax">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.2" ixy="0.0" ixz="0.0" iyy="0.2" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_name" type="fixed">
+    <origin xyz="0 0.03 0.03" rpy="0.0 -1.570796 0.0"/>
+    <parent link="rod_supporter"/>
+    <child link="buax"/>
+    <axis xyz="0.0 0.0 0.0"/>
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <gazebo reference="buax">        
+   <sensor type="ray" name="proxy">
+      <pose>0 0 0 0 -1.570796 0</pose>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>1</samples>
+               <resolution>1.0</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>1</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.01</min_angle>
+               <max_angle>0.01</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.01</min>
+            <max>3.75</max>
+            <resolution>0.02</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>5</updateRate>
+         <topicName>/hunter_killer_mast/proxy_sensor</topicName>
+         <frameName>buax</frameName>
+         <visualize>true</visualize>
+         <radiation>infrared</radiation>
+         <fov>0.02</fov>
+      </plugin>
+    </sensor>            
+  </gazebo>
+
+  <link
+    name="rod_supporter">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 0 0.01524"
+        rpy="0 0 0" />
+      <mass
+        value="0.0919734304942546" />
+      <inertia
+        ixx="5.20957439344639E-05"
+        ixy="-2.3398997418822E-21"
+        ixz="-8.63635355504983E-22"
+        iyy="2.56650484088638E-05"
+        iyz="2.00216253752143E-21"
+        izz="6.78711959403822E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/rod_supporter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/rod_supporter.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="rod_supporter_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="blue_board" />
+    <child
+      link="rod_supporter" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <link
+    name="guide_rods">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 2.22044604925031E-16 0.0543107874034415"
+        rpy="0 0 0" />
+      <mass
+        value="0.0201669646243119" />
+      <inertia
+        ixx="1.80976233284884E-05"
+        ixy="-2.33061764938766E-40"
+        ixz="9.22606618892689E-24"
+        iyy="1.80976233284884E-05"
+        iyz="-4.16978745735654E-39"
+        izz="1.55795054568415E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://hunter_killer_mast/meshes/guide_rods.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.007 -0.007 0.105"
+        rpy="0 3.141592 0" />
+      <geometry>
+        <mesh filename="package://hunter_killer_mast/meshes/rod_2.STL" scale="0.001 0.00102 0.00102"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="guide_rods_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rod_supporter" />
+    <child
+      link="guide_rods" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="communication_module">
+    <inertial>
+      <origin
+        xyz="0.0134660243967413 -0.0126839365107112 0.000639459594719671"
+        rpy="0 0 0" />
+      <mass
+        value="0.210240234105136" />
+      <inertia
+        ixx="0.00014510351628552"
+        ixy="4.05850233971895E-07"
+        ixz="7.64351412431873E-06"
+        iyy="0.00021092887628388"
+        iyz="-2.53045246409258E-06"
+        izz="0.000163406381690408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/communication_module.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.025 -0.497 -0.014 "
+        rpy="1.570796 0.05 1.570796" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/module_4.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="communication_module_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0127 0 0.05254"
+      rpy="3.1416 -1.5708 1.6238" />
+    <parent
+      link="rod_supporter" />
+    <child
+      link="communication_module" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="1" />
+  </joint>
+
+  <link
+    name="antena">
+    <inertial>
+      <origin
+        xyz="-0.00126999999999988 0.44450000000001 0.00126999999999988"
+        rpy="0 0 0" />
+      <mass
+        value="0.143371875506258" />
+      <inertia
+        ixx="0.0120842858829543"
+        ixy="-5.74063345111717E-19"
+        ixz="-8.88927714737223E-05"
+        iyy="0.000179416558545412"
+        iyz="-2.70074469998607E-19"
+        izz="0.0120842858829543" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/antena.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="antena_joint"
+    type="fixed">
+    <origin
+      xyz="0.01604 0.43133 -0.020359"
+      rpy="3.0885 0 0" />
+    <parent
+      link="communication_module" />
+    <child
+      link="antena" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="exposed_plate">
+    <inertial>
+      <origin
+        xyz="8.88178419700125E-16 0.000127000000000044 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000412780903939401" />
+      <inertia
+        ixx="5.39960360516428E-08"
+        ixy="-5.74455212874483E-23"
+        ixz="-4.84975786754717E-23"
+        iyy="1.54241350777618E-07"
+        iyz="-5.98369508948817E-25"
+        izz="1.00249753221442E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/exposed_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint
+    name="exposed_plate_joint"
+    type="fixed">
+    <origin
+      xyz="0.0516 -0.012682 0.00067339"
+      rpy="0 1.5177 -1.5708" />
+    <parent
+      link="communication_module" />
+    <child
+      link="exposed_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="pankha">
+    <inertial>
+      <origin
+        xyz="0 0 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.73075199999996" />
+      <inertia
+        ixx="0.0101973887999999"
+        ixy="0"
+        ixz="8.84708972748172E-18"
+        iyy="0.326022955775997"
+        iyz="5.60136381722005E-20"
+        izz="0.326022955775997" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.508 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/pankha.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.508 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/pankha.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="pankha_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.03 2.05"
+      rpy="0 0 0" />
+    <parent
+      link="mast" />
+    <child
+      link="pankha" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-99999999999"
+      upper="99999999999"
+      effort="1"
+      velocity="1" />
+  </joint>
+
+  <link name="navigation_pole">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1901952" />
+      <inertia
+        ixx="0.016378328708352"
+        ixy="-6.97430332990107E-21"
+        ixz="-6.07340949473425E-20"
+        iyy="0.016378328708352"
+        iyz="3.36950873090182E-19"
+        izz="3.49680215039997E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 -0.508"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/navigation_pole.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.508"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/navigation_pole.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="navigation_pole_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.05 1.43"
+      rpy="0 1.570796 0" />
+    <parent
+      link="mast" />
+    <child
+      link="navigation_pole" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  #LED 
+
+  <joint name="ledport_joint" type="fixed">
+    <origin xyz="-0.05 0.004 0.48" rpy="0.0 -1.570796 0.0"/>
+    <parent link="navigation_pole"/>
+    <child link="ledport"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <joint name="ledstarboard_joint" type="fixed">
+    <origin xyz="-0.05 0.004 -0.52" rpy="0.0 -1.570796 0.0"/>
+    <parent link="navigation_pole"/>
+    <child link="ledstarboard"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="ledport">
+    <inertial>
+      <origin
+        xyz="0.02 0 -0.05"
+        rpy="0 0 0" />
+      <mass
+        value="0.04914" />
+      <inertia
+        ixx="1.5694E-03"
+        ixy="0"
+        ixz="0"
+        iyy="1.6689E-03"
+        iyz="0"
+        izz="1.5695E-03" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/base_led.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/base_led.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="hemi1l">
+    <inertial>
+      <origin
+        xyz="0.003137 0.0075 0.0004973"
+        rpy="0 0 0" />
+      <mass
+        value="0.01709" />
+      <inertia
+        ixx="1.7731E-04"
+        ixy="0"
+        ixz="0"
+        iyy="2.7344E-04"
+        iyz="0"
+        izz="1.7731E-04" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69412 0.098039 0.098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="hemi1l_joint"
+    type="revolute">
+    <origin
+      xyz="0.019003 0 -0.027203"
+      rpy="1.5708 0 -1.4136" />
+    <parent
+      link="ledport" />
+    <child
+      link="hemi1l" />
+    <axis
+      xyz="0.1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="10"
+      velocity="10" />
+  </joint>
+
+  <link
+    name="hemi2l">
+    <inertial>
+      <origin
+        xyz="0 0.0075 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.01709" />
+      <inertia
+        ixx="1.7731E-04"
+        ixy="0"
+        ixz="0"
+        iyy="2.7344E-04"
+        iyz="0"
+        izz="1.7731E-04" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.28627 0.66275 0.32941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="hemi2l_joint"
+    type="fixed">
+    <origin
+      xyz="0.003137 0 0.0004973"
+      rpy="3.1416 1.2392 0" />
+    <parent
+      link="hemi1l" />
+    <child
+      link="hemi2l" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link name="ledstarboard">
+    <inertial>
+      <origin
+        xyz="0.02 0 -0.05"
+        rpy="0 0 0" />
+      <mass
+        value="0.04914" />
+      <inertia
+        ixx="1.5694E-03"
+        ixy="0"
+        ixz="0"
+        iyy="1.6689E-03"
+        iyz="0"
+        izz="1.5695E-03" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/base_led.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/base_led.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="hemi1r">
+    <inertial>
+      <origin
+        xyz="0.003137 0.0075 0.0004973"
+        rpy="0 0 0" />
+      <mass
+        value="0.01709" />
+      <inertia
+        ixx="1.7731E-04"
+        ixy="0"
+        ixz="0"
+        iyy="2.7344E-04"
+        iyz="0"
+        izz="1.7731E-04" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69412 0.098039 0.098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="hemi1r_joint"
+    type="revolute">
+    <origin
+      xyz="0.019003 0 -0.027203"
+      rpy="1.5708 0 -1.4136" />
+    <parent
+      link="ledstarboard" />
+    <child
+      link="hemi1r" />
+    <axis
+      xyz="0.1 0 0" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="10"
+      velocity="10" />
+  </joint>
+
+  <link
+    name="hemi2r">
+    <inertial>
+      <origin
+        xyz="0 0.0075 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.01709" />
+      <inertia
+        ixx="1.7731E-04"
+        ixy="0"
+        ixz="0"
+        iyy="2.7344E-04"
+        iyz="0"
+        izz="1.7731E-04" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hunter_killer_mast/meshes/hemi2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0.28627 0.66275 0.32941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://hunter_killer_mast/meshes/hemi2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="hemi2r_joint"
+    type="fixed">
+    <origin
+      xyz="0.003137 0 0.0004973"
+      rpy="3.1416 1.2392 0" />
+    <parent
+      link="hemi1r" />
+    <child
+      link="hemi2r" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  #ROS Control and Transmissions
+
+  <transmission name="roll_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="box_base_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="roll_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="pitch_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="base_mast_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="pitch_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="pankha_transmission" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="pankha_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="pankha_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="left_led" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_led">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="hemi1l_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="right_led" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_led">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="hemi1r_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/hunter_killer_mast</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  # Colors for reference
+
+  <gazebo reference="hemi1l">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="hemi1r">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+
+</robot>

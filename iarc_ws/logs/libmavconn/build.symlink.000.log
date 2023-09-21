@@ -1,0 +1,5 @@
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/libmavconn.so
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/pkgconfig/libmavconn.pc
+Symlinking /home/student/students/harshil/iarc_ws/devel/share/libmavconn/cmake/libmavconnConfig.cmake
+Symlinking /home/student/students/harshil/iarc_ws/devel/share/libmavconn/cmake/libmavconnConfig-version.cmake
+Symlinking /home/student/students/harshil/iarc_ws/devel/share/libmavconn/cmake/libmavconn-extras.cmake

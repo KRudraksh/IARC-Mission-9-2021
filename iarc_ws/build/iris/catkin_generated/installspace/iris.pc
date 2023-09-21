@@ -1,0 +1,8 @@
+prefix=/home/student/students/harshil/iarc_ws/install
+
+Name: iris
+Description: Description of iris
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

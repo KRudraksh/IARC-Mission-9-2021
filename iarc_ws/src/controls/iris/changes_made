@@ -1,0 +1,7 @@
+changes made - \\iris_3.sdf and urdf
+
+<link name='y_mechanism'> -- mass = 0.01 --> 0.05
+
+<link name='end_effector'> -- mass = 0.01 --> 0.025
+
+<link name='x_mechanism'> -- mass = 0.01 --> 0.025

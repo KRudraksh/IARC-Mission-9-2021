@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="daughter6">
+
+  <!--link name="box">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="100000.0"/>
+      <inertia ixx="100000.0" ixy="0.0" ixz="0.0" iyy="100000.0" iyz="0.0" izz="100000.0"/>
+    </inertial>
+    <visual name="">
+      <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.5 0.5 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.5 0.5 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="box_joint" type="fixed">
+    <origin xyz="-0.31622 1 0.4" rpy="0.0 0.0 0.0"/>
+    <parent link="box"/>
+    <child link="base_link"/>
+  </joint-->
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="100" />
+      <inertia
+        ixx="100"
+        ixy="2.82019801601965E-05"
+        ixz="-2.89671162372007E-07"
+        iyy="100"
+        iyz="8.06294042676789E-07"
+        izz="100" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.3 -1.0 0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.5 0.5 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="daughter_mounts">
+    <inertial>
+      <origin
+        xyz="-0.28482 0.047234 0.18037"
+        rpy="0 0 0" />
+      <mass
+        value="0.39734" />
+      <inertia
+        ixx="0.00019431"
+        ixy="-1.4903E-22"
+        ixz="1.3553E-20"
+        iyy="0.00016614"
+        iyz="-3.425E-22"
+        izz="0.00019431" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/daughter_mounts.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.0 0.0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/daughter_mounts.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="daughter_mounts_joint"
+    type="fixed">
+    <origin
+      xyz="0.5617 -0.82611 0.52081"
+      rpy="1.5708 0 0.22087" />
+    <parent
+      link="base_link" />
+    <child
+      link="daughter_mounts" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="x_mechanism">
+    <inertial>
+      <origin
+        xyz="0.05 -1.6653E-15 -0.1"
+        rpy="0 0 0" />
+      <mass
+        value="0.025" />
+      <inertia
+        ixx="0.0000415"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0000415"
+        iyz="0.0"
+        izz="0.0000415" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/x_mechanism.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/x_mechanism.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="x_mechanism_joint"
+    type="prismatic">
+    <origin
+      xyz="0.28188 -1.1645 0.77331"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="x_mechanism" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.075"
+      upper="0.175"
+      effort="1"
+      velocity="5" />
+
+  </joint>
+
+
+
+  <link
+    name="y_mechanism">
+    <inertial>
+      <origin
+        xyz="4.44089209850063E-16 1.66533453693773E-15 -0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.01" />
+      <inertia
+        ixx="0.0000166"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0000166"
+        iyz="0.0"
+        izz="0.0000166" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/y_mechanism.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/y_mechanism.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="y_mechanism_joint"
+    type="prismatic">
+    <origin
+      xyz="0.08 0 -0.1"
+      rpy="0 0 0" />
+    <parent
+      link="x_mechanism" />
+    <child
+      link="y_mechanism" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.075"
+      upper="0.075"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+
+
+  <link
+    name="z_mechanism">
+    <inertial>
+      <origin
+        xyz="1.23554593811637E-05 0.304486025518739 8.83599374001953E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.025" />
+      <inertia
+        ixx="0.0000415"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0000415"
+        iyz="0.0"
+        izz="0.0000415" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/z_mechanism.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/z_mechanism.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="z_mechanism_joint"
+    type="fixed">
+    <origin
+      xyz="-0.011512 0.0275 -0.03"
+      rpy="3.1416 0 0" />
+    <parent
+      link="y_mechanism" />
+    <child
+      link="z_mechanism" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!-- <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="0.0842524173635568 0.0878447280375007 0.126300455794391"
+        rpy="0 0 0" />
+      <mass
+        value="0.025" />
+      <inertia
+        ixx="0.0000415"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0000415"
+        iyz="0.0"
+        izz="0.0000415" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://daughter6/meshes/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link> -->
+
+  <joint
+    name="end_effector_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.41 0.6 0.95"
+      rpy="1.5708 -1.5704 0" />
+    <parent
+      link="z_mechanism" />
+    <child
+      link="endeffector_base_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.20"
+      upper="0.20"
+      effort="1"
+      velocity="5" />
+  </joint>
+
+  <link name="endeffector_base_link">
+    <inertial>
+      <origin
+        xyz="0.084688775983158 -0.04 0.104688775983158"
+        rpy="0 0 0" />
+      <mass
+        value="1.46831896401239" />
+      <inertia
+        ixx="0.00322833324237339"
+        ixy="3.04647308633317E-07"
+        ixz="-1.10768095812092E-07"
+        iyy="0.00375446323042298"
+        iyz="2.00972499910891E-05"
+        izz="0.00125851892718179" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/endeffector_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/endeffector_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <link
+    name="telescope">
+    <inertial>
+      <origin
+        xyz="0.0985676197712841 0.00874270290997199 2.09554595897998E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.143539333717002" />
+      <inertia
+        ixx="3.24429026962469E-05"
+        ixy="9.43195690190061E-08"
+        ixz="-2.19025318855978E-19"
+        iyy="0.000494784708914685"
+        iyz="-2.16654606784098E-20"
+        izz="0.000478762550221059" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/telescope.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/telescope.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="telescope_joint"
+    type="prismatic">
+    <origin
+      xyz="0.084691 -0.14427 0.075806"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="endeffector_base_link" />
+    <child
+      link="telescope" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.22"
+      upper="0"
+      effort="1000"
+      velocity="0.04" />
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+
+  <link
+    name="module_holder">
+    <inertial>
+      <origin
+        xyz="0.0276444683872192 0.0380287752991031 0.0471657897823428"
+        rpy="0 0 0" />
+      <mass
+        value="0.112915699895722" />
+      <inertia
+        ixx="0.000239125772707064"
+        ixy="-4.47922778840386E-14"
+        ixz="-3.73462875029935E-08"
+        iyy="0.000125663515607535"
+        iyz="-8.81547273538875E-08"
+        izz="0.000217510523518944" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/module_holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.0045 -0.0055 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iris/meshes/module_holder32.STL" scale="0.00105 0.00105 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="module_holder_joint"
+    type="fixed">
+    <origin
+      xyz="-0.093918 -0.06763 0.02794"
+      rpy="0 1.5708 0" />
+    <parent
+      link="telescope" />
+    <child
+      link="module_holder" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="module">
+    <inertial>
+      <origin
+        xyz="0 -7.21644966006352E-16 -2.08166817117217E-17"
+        rpy="0 0 0" />
+      <mass
+        value="2.75530438159008" />
+      <inertia
+        ixx="0.0948411478865417"
+        ixy="1.75752708939923E-17"
+        ixz="0.000754879701125273"
+        iyy="0.00305381832840899"
+        iyz="7.79715110963465E-16"
+        izz="0.0948533146084629" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/module.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.038 -0.482 -0.038"
+        rpy="1.570796 0 1.570796" />
+      <geometry>
+        <mesh filename="package://iris/meshes/module_4.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="module_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0284 0.0411 0.0401"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="module_holder" />
+    <child
+      link="module" />
+    <axis
+      xyz="0 0 0" />
+    <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    
+  </joint>
+
+  <link
+    name="servo">
+    <inertial>
+      <origin
+        xyz="0.0141844106750691 0.00318503516424351 0.0199549766675129"
+        rpy="0 0 0" />
+      <mass
+        value="0.000386150154902626" />
+      <inertia
+        ixx="1.24403558782184E-09"
+        ixy="-3.41567594066127E-24"
+        ixz="2.28831761644552E-23"
+        iyy="4.45543739705495E-08"
+        iyz="2.26253041751632E-25"
+        izz="4.38308530283391E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="-0.0141844106750691 -0.00318503516424351 -0.0199549766675129"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/servo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.0141844106750691 -0.00318503516424351 -0.0199549766675129"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/servo.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="servo_joint"
+    type="revolute">
+    <origin
+      xyz="0.0191844106750691 -0.01418503516424351 -0.006"
+      rpy="-1.570796 0 -1.570796" />
+    <parent
+      link="module_holder" />
+    <child
+      link="servo" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.001"
+      upper="1.570796"
+      effort="0.05"
+      velocity="5" />
+    <dynamics damping="0.0001" friction="0.0001"/>
+  </joint>
+
+  <link
+    name="slider">
+    <inertial>
+      <origin
+        xyz="0.0203059949124869 0.043758365249048 9.72694147449715E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.558494211268862" />
+      <inertia
+        ixx="0.00112618003156778"
+        ixy="-5.57199273373032E-08"
+        ixz="3.18217481703732E-15"
+        iyy="0.000465818095997846"
+        iyz="-2.38402806797747E-14"
+        izz="0.00135192392453979" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/slider.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/slider.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="slider_joint"
+    type="prismatic">
+    <origin
+      xyz="0.084691 -0.34108 0.1774"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="endeffector_base_link" />
+    <child
+      link="slider" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="0.03"
+      effort="10"
+      velocity="0.05" />
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+
+  <link
+    name="mast_gripper_body">
+    <inertial>
+      <origin
+        xyz="0.00953325364640828 -0.0296875521162713 0.0991417114679227"
+        rpy="0 0 0" />
+      <mass
+        value="0.240475754958868" />
+      <inertia
+        ixx="0.000765472790552599"
+        ixy="-4.85003135776345E-07"
+        ixz="-3.49469630460124E-07"
+        iyy="0.000753406095159606"
+        iyz="2.77532727532972E-07"
+        izz="3.11499400675814E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iris/meshes/mast_gripper_body.STL" scale="0.7 1 1"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iris/meshes/mast_gripper_body.STL" scale="0.7 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mast_gripper_body_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.018 0.09519 -0.1"
+      rpy="0 0 3.1416" />
+    <parent
+      link="slider" />
+    <child
+      link="mast_gripper_body" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0.20"
+      effort="2000"
+      velocity="0.02" />
+    <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+
+  <link
+    name="mast_gripper_left_arm">
+    <inertial>
+      <origin
+        xyz="0.0164436084657876 0.0801539698589274 0.0128359148574209"
+        rpy="0 0 0" />
+      <mass
+        value="0.0876533524092543" />
+      <inertia
+        ixx="0.000108646062517578"
+        ixy="5.03908918766212E-06"
+        ixz="1.54138267447094E-08"
+        iyy="1.5937255529227E-05"
+        iyz="3.5017134818822E-06"
+        izz="0.000115868997224528" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0.008"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/mast_gripper_left_arm.STL" scale="1 1 0.7"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.008"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/mast_gripper_left_arm.STL" scale="1 1 0.7"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mast_gripper_left_arm_joint"
+    type="prismatic">
+    <origin
+      xyz="0.02916 0.11529 0.19246"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="mast_gripper_body" />
+    <child
+      link="mast_gripper_left_arm" />
+    <axis
+      xyz="1 0 0 " />
+    <limit
+      lower="0"
+      upper="0.055"
+      effort="20"
+      velocity="0.01" />
+    <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+  <link
+    name="mast_gripper_right_arm">
+    <inertial>
+      <origin
+        xyz="0.0175656340795079 0.0707958011115334 0.0126126939075389"
+        rpy="0 0 0" />
+      <mass
+        value="0.128708040529818" />
+      <inertia
+        ixx="0.000147847608261048"
+        ixy="8.23950490743168E-06"
+        ixz="6.71261713631704E-08"
+        iyy="1.97721476229939E-05"
+        iyz="-3.74072998463079E-06"
+        izz="0.000156008264642318" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/mast_gripper_right_arm.STL" scale="1 1 0.7"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/mast_gripper_right_arm.STL" scale="1 1 0.7"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="mast_gripper_right_arm_joint"
+    type="prismatic">
+    <origin
+      xyz="0.00376 0.11529 0.008824"
+      rpy="3.141592 -1.5708 0" />
+    <parent
+      link="mast_gripper_body" />
+    <child
+      link="mast_gripper_right_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.055"
+      effort="20"
+      velocity="0.01" />
+    <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+
+  <link
+    name="left_antenna_plate">
+    <inertial>
+      <origin
+        xyz="0.00385989929847952 0.0123351521617864 0.00216477941046883"
+        rpy="0 0 0" />
+      <mass
+        value="0.0257369061008368" />
+      <inertia
+        ixx="1.87589270482426E-05"
+        ixy="5.99617190455542E-06"
+        ixz="-1.32643304623438E-07"
+        iyy="1.24815047437408E-05"
+        iyz="6.92953843522246E-07"
+        izz="3.03160210795998E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/left_antenna_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.04 -0.02 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iris/meshes/plate_3.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="left_antenna_plate_joint"
+    type="prismatic">
+    <origin
+      xyz="0.17769 -0.31177 0.16264"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="endeffector_base_link" />
+    <child
+      link="left_antenna_plate" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.11"
+      upper="0"
+      effort="10"
+      velocity="0.02" />
+    <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+
+  <link
+    name="right_antenna_plate">
+    <inertial>
+      <origin
+        xyz="0.00385989929847941 0.0123351521617863 0.00483522058953116"
+        rpy="0 0 0" />
+      <mass
+        value="0.0257369061008368" />
+      <inertia
+        ixx="1.87589270482426E-05"
+        ixy="5.99617190455541E-06"
+        ixz="1.32643304623517E-07"
+        iyy="1.24815047437408E-05"
+        iyz="-6.92953843522276E-07"
+        izz="3.03160210795998E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/right_antenna_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="-0.04 -0.02 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iris/meshes/plate_3.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="right_antenna_plate_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.015309 -0.31177 0.16264"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="endeffector_base_link" />
+    <child
+      link="right_antenna_plate" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.11"
+      upper="0"
+      effort="10"
+      velocity="0.02" />
+    <dynamics damping="1.0" friction="1.0"/>
+  </joint>
+
+  
+
+
+  <!--link
+    name="end_effector_base_link">
+    <inertial>
+      <origin
+        xyz="0.0842524173635568 0.0878447280375007 0.126300455794391"
+        rpy="0 0 0" />
+      <mass
+        value="6.13346765838147" />
+      <inertia
+        ixx="0.00969440906049311"
+        ixy="3.31495047956124E-06"
+        ixz="-5.29991763629153E-07"
+        iyy="0.101623549886689"
+        iyz="-0.000739163904946508"
+        izz="0.0986462091191756" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/end_effector_meshes/endeffector_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iris/meshes/end_effector_meshes/endeffector_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="end_effector_base_link_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.00016866 0.57237 0.084728"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="z_mechanism" />
+    <child
+      link="end_effector_base_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.20"
+      upper="0.20"
+      effort="1"
+      velocity="1.0" />
+  </joint-->
+
+  <!-- Transmissions -->
+  <transmission name="x_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="x_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="x_mechanism_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+
+  <transmission name="y_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="y_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="y_mechanism_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="z_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="z_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="end_effector_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission> 
+
+  #RPY Jugaad
+  
+  #ENdeffector ke chize
+
+  <transmission name="slider_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="slider">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="slider_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="mastgripper_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="gripper">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="mast_gripper_body_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="left_gripper_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="left_gripper">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="mast_gripper_left_arm_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="right_gripper_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="right_gripper">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="mast_gripper_right_arm_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="rantenna_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="rantenna">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="right_antenna_plate_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="lantenna_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="lantenna">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="left_antenna_plate_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="tele1_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="tele1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="telescope_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="low_servo_trans" type="SimpleTransmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="low_servo">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="servo_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+
+ <!--  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/daughter6</robotNamespace>
+    </plugin>
+  </gazebo> -->
+
+</robot>

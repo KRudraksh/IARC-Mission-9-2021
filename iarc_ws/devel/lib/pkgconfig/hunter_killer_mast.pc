@@ -1,0 +1,1 @@
+/home/student/students/harshil/iarc_ws/devel/.private/hunter_killer_mast/lib/pkgconfig/hunter_killer_mast.pc

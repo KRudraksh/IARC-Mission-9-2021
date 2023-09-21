@@ -1,0 +1,14 @@
+Steps to run this package in your system
+
+In urdf/hunter_killer_mast.sdf file, replace the phrase 'ronnie7z/iarc/' with your lappy's name and workspace name.
+    For eg your workspace name is howtogetoffended101 and your Lappy's name is feminists24x7 then perform the below replacement
+
+        'ronnie7z/iarc/' --> 'feminists24x7/howtogetoffended101/'
+
+Koi changes karne honge/kuch add karna hoga toh meko boldo ya merese baat karlo pehle. 
+I repeat, dont make changes directly to SDF, that ain't systematic bruh...
+
+Steps to simulate everything
+1. Run the sea_states.py script
+2. Run blinding_lights.py script
+3. Perform whatever you wanna do

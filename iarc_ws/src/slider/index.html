@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - The Password Genie - Vue.js </title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+    <section class="wrapper">   
+
+      <div class="field-wrap">  
+          <label>Sea states </label>
+          <span class="range-value">{{settings.states}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar"  v-bind:style="{ width: statesThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="0" v-bind:max="settings.maxStates" v-model="settings.states">
+          </div>  
+        </div>
+
+     
+        <div class="field-wrap">
+          <label>Wind speed (Kph)</label>
+          <span class="range-value">{{settings.wind_speed}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar" v-bind:style="{ width: wind_speedThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="6" v-bind:max="settings.max_wind_speed" v-model="settings.wind_speed">
+          </div>  
+        </div>
+        <div class="field-wrap">  
+          <label>Wind direction(deg)</label>
+          <span class="range-value">{{settings.degs}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar"  v-bind:style="{ width: degsThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="0" v-bind:max="settings.maxDegs" v-model="settings.degs">
+          </div>  
+        </div>
+          
+          <div class="field-wrap">  
+            <label>Flight Speed</label>
+            <span class="range-value">{{settings.flight_speed}}</span>
+            <div class="range-slider_wrapper">
+              <span class="slider-bar"  v-bind:style="{ width: flight_speedThumbPosition + '%' }"></span>
+              <input type="range" class="range-slider" min="0" v-bind:max="settings.maxFlight_speed" v-model="settings.flight_speed">
+            </div>  
+          </div>
+
+        <div class="field-wrap">  
+          <label>Endurance</label>
+          <span class="range-value">{{settings.endurance}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar"  v-bind:style="{ width: enduranceThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="0" v-bind:max="settings.maxEndurance" v-model="settings.endurance">
+          </div>  
+        </div>
+    
+    </section>
+</div>
+<!-- partial -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+  
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+<script  src="./script.js"></script>
+
+  </body>
+</html>

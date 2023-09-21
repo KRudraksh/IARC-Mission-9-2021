@@ -1,0 +1,33 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Position Controllers ---------------------------------------
+x_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: x_mechanism_joint
+  pid: {p: 1500, i: 10, d: 120}
+y_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: y_mechanism_joint
+  pid: {p: 750, i: 25, d: 150}
+z_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: endeffector_base_link_joint
+  pid: {p: 750, i: 25, d: 150}
+
+telescope_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: telescope_joint
+  pid: {p: 1500, i: 10, d: 120}
+
+slider_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: slider_joint
+  pid: {p: 1500, i: 10, d: 120}
+
+#mast_gripper_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: mast_gripper_body_joint
+#s  pid: {p: 1500, i: 10, d: 120}

@@ -1,0 +1,8 @@
+prefix=/home/student/students/harshil/iarc_ws/install
+
+Name: utils
+Description: Description of utils
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

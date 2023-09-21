@@ -1,0 +1,8 @@
+prefix=/home/student/students/harshil/iarc_ws/install
+
+Name: mast_final
+Description: Description of mast_final
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

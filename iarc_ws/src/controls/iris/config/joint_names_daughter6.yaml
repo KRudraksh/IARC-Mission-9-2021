@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'x_mechanism_joint', 'y_mechanism_joint', 'z_mechanism_joint', 'end_effector_joint', ]

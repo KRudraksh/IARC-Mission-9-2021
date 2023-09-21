@@ -1,0 +1,6 @@
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/libmavros_extras.so
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/pkgconfig/mavros_extras.pc
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/mavros_extras/servo_state_publisher
+Symlinking /home/student/students/harshil/iarc_ws/devel/lib/mavros_extras/visualization
+Symlinking /home/student/students/harshil/iarc_ws/devel/share/mavros_extras/cmake/mavros_extrasConfig.cmake
+Symlinking /home/student/students/harshil/iarc_ws/devel/share/mavros_extras/cmake/mavros_extrasConfig-version.cmake

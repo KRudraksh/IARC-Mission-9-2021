@@ -1,0 +1,12 @@
+<launch> 
+  <!-- <arg name="node_start_delay_1" default="10.0"/>
+  <arg name="node_start_delay_2" default="5.0"/> -->
+  	<node pkg="autopilot" name="tf_broadcaster" type="broadcaster.py" output="screen"/>
+    <node pkg="autopilot" name="autopilot_node" type="autopilot.py" output="screen"/>
+    <node pkg="autopilot" name="endurance" type="endurance.py" output="screen"/>
+    <node pkg="autopilot" name="sea_states_node" type="sea_states.py" output="screen"/>
+    <node pkg="autopilot" name="sliders_node" type="sliders.py" output="screen"/>
+    <node pkg="autopilot" name="led_switch" type="blinding_lights.py" output="screen"/>
+    <node pkg="autopilot" name="child_node" type="child_node.py" output="screen"/>
+
+</launch>

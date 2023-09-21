@@ -1,0 +1,8 @@
+prefix=/home/student/students/harshil/iarc_ws/install
+
+Name: hunter_killer_mast
+Description: Description of hunter_killer_mast
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

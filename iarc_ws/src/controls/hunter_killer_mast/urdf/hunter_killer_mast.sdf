@@ -1,0 +1,1055 @@
+<sdf version='1.6'>
+	<model name='hunter_killer_mast'>
+		<link name='box_base'>
+			<pose frame=''>0 0 0 0 -0 0</pose>
+			<inertial>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<mass>20</mass>
+				<inertia>
+					<ixx>4</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>4</iyy>
+					<iyz>0</iyz>
+					<izz>4</izz>
+				</inertia>
+			</inertial>
+			<collision name='box_base_collision'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<box>
+						<size>1 1 0.1</size>
+					</box>
+				</geometry>
+				<surface>
+					 <contact>
+						<collide_bitmask>2</collide_bitmask>
+						<ode>
+							<max_vel>0</max_vel>
+							<min_depth>0.001</min_depth>
+						</ode>
+					 </contact>
+					 <bounce/>
+					 <friction>
+						 <ode>
+							 <mu>1</mu>
+							 <mu2>1</mu2>
+						 </ode>
+						 <torsional>
+							 <ode/>
+						 </torsional>
+						 <ode/>
+					 </friction>
+				</surface>
+			</collision>
+			<visual name='box_base_visual'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<box>
+						<size>1 1 0.1</size>
+					</box>
+				</geometry>
+				<material>
+					<script>
+						<name>ModelPreview_1::base::base_visual_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<diffuse>0.9 0.9 0.9 1</diffuse>
+					<specular>0.2 0.2 0.2 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+		</link>
+
+		<link name='base'>
+			<pose frame=''>0 0 0.05 0 -0 0</pose>
+			<inertial>
+				<pose frame=''>-0.021807 0.298116 0.306153 0 -0 0</pose>
+				<mass>26.6735</mass>
+				<inertia>
+					<ixx>2.29538</ixx>
+					<ixy>-9.71572e-19</ixy>
+					<ixz>-2.66211e-17</ixz>
+					<iyy>4.58898</iyy>
+					<iyz>0</iyz>
+					<izz>2.29538</izz>
+				</inertia>
+			</inertial>
+		</link>
+		
+		<joint name='roll_joint' type='revolute'>
+			<child>base</child>
+			<parent>box_base</parent>
+			<axis>
+				<xyz>1 0 0</xyz>
+				<limit>
+					<lower>-0.2</lower>
+					<upper>0.2</upper>
+					<effort>1000</effort>
+					<velocity>0.5</velocity>
+				</limit>
+				<dynamics>
+					<damping>10</damping>
+					<friction>1</friction>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint>
+		
+		<link name='dummy_module'>
+			<pose frame=''>0.0027 -0.18554 1.1 0 0 -1.5708</pose>
+		</link>
+
+		<joint name='dummy_joint' type='fixed'>
+			<child>dummy_module</child>
+			<parent>mast</parent>
+		</joint>
+
+
+		<link name='mast'>
+			<pose frame=''>0 0 0.05 0 -0 0</pose>
+			<inertial>
+				<pose frame=''>-0.001482 -0.028214 0.755526 -3.14159 -1.0464 -1.0472</pose>
+				<mass>4.50868</mass>
+				<inertia>
+					<ixx>0.278217</ixx>
+					<ixy>-0.0121037</ixy>
+					<ixz>0.369556</ixz>
+					<iyy>0.959113</iyy>
+					<iyz>0.0251943</iyz>
+					<izz>0.786576</izz>
+				</inertia>
+			</inertial>
+		 <collision name='mast_collision'>
+				<pose frame=''>0 0.42 1.1 0 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.3 1.1 1.6</size>
+					</box>
+				</geometry>
+				<surface>
+					 <contact>
+					 	<collide_bitmask>16</collide_bitmask>
+						<ode>
+							<max_vel>0</max_vel>
+							<min_depth>0.00001</min_depth>
+						</ode>
+					 </contact>
+					 <bounce/>
+					 <friction>
+						 <ode>
+							 <mu>0</mu>
+							 <mu2>0</mu2>
+						 </ode>
+						 <torsional>
+							 <ode/>
+						 </torsional>
+						 <ode/>
+					 </friction>
+				</surface>
+			</collision>
+
+
+
+			<!-- <collision name='mast_fixed_joint_lump__blue_board_collision_1'>
+				<pose frame=''>-0.01 -0.12 1.05 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 5</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/blue_board.STL</uri>
+					</mesh>
+				</geometry>
+			</collision> -->
+			<!-- <collision name='mast_fixed_joint_lump__name_plate_collision_2'>
+				<pose frame=''>-0.01 -0.132794 1.13382 -4e-06 0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/name_plate.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			 -->
+
+			<collision name='mast_fixed_joint_lump__blue_board_collision_2'>
+				<pose frame=''>-0.01 -0.158 1.03 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 0.5 30</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/blue_board.STL</uri>
+					</mesh>
+				</geometry>
+				<surface>
+					 <contact>
+					 	<collide_bitmask>144</collide_bitmask>
+						<ode>
+							<max_vel>0</max_vel>
+							<min_depth>0.001</min_depth>
+						</ode>
+					 </contact>
+					 <bounce/>
+					 <friction>
+						 <ode>
+							 <mu>0</mu>
+							 <mu2>0</mu2>
+						 </ode>
+						 <torsional>
+							 <ode/>
+						 </torsional>
+						 <ode/>
+					 </friction>
+				</surface>
+			</collision>
+			<collision name='mast_fixed_joint_lump__rod_supporter_collision_3'>
+				<pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/rod_supporter.STL</uri>
+					</mesh>
+				</geometry>
+				<surface>
+					 <contact>
+					 	<collide_bitmask>112</collide_bitmask>
+						<ode>
+							<max_vel>0</max_vel>
+							<min_depth>0.001</min_depth>
+						</ode>
+					 </contact>
+					 <bounce/>
+					 <friction>
+						 <ode>
+							 <mu>100</mu>
+							 <mu2>100</mu2>
+						 </ode>
+						 <torsional>
+							 <ode/>
+						 </torsional>
+						 <ode/>
+					 </friction>
+				</surface>
+			</collision>
+			<collision name='mast_fixed_joint_lump__guide_rods_collision_7'>
+        <pose frame=''>-0.017 -0.238 1.058 -1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.00102 0.00102</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/rod_2.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+           <contact>
+            <collide_bitmask>104</collide_bitmask>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+           </contact>
+           <bounce/>
+           <friction>
+             <ode>
+               <mu>0.85</mu>
+               <mu2>0.85</mu2>
+             </ode>
+             <torsional>
+               <ode/>
+             </torsional>
+             <ode/>
+           </friction>
+        </surface>
+      </collision>
+			<collision name='mast_fixed_joint_lump__navigation_pole_collision_8'>
+				<pose frame=''>-0.508 -0.05 1.43 3.14159 1.57079 3.14159</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/navigation_pole.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<collision name='mast_fixed_joint_lump__ledport_collision_9'>
+				<pose frame=''>0.48 -0.046 1.48 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/base_led.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<collision name='mast_fixed_joint_lump__ledstarboard_collision_10'>
+				<pose frame=''>-0.52 -0.046 1.48 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/base_led.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<!-- <visual name='mast_visual'>
+				<pose frame=''>0 0.05 0.714 -3.14159 -1.0464 -1.0472</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/mast.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__mast_visual_1_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__blue_board_visual_1'>
+				<pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/blue_board.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__blue_board_visual_2_MATERIAL_</name>
+					</script>
+					<ambient>0.225 0.3 0.35 1</ambient>
+					<diffuse>0.45 0.6 0.7 1</diffuse>
+					<specular>0.2 0.2 0.2 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__name_plate_visual_2'>
+				<pose frame=''>-0.01 -0.132794 1.13382 -4e-06 0 0</pose>
+				<geometry>
+					<box>
+						<size>0.26 0.001 0.062</size>
+					</box>
+				</geometry>
+				<material>
+					<script>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/materials/byu.material</uri>
+						<name>BYU/ground</name>
+					</script>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__rod_supporter_visual_3'>
+				<pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/rod_supporter.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__rod_supporter_visual_4_MATERIAL_</name>
+					</script>
+					<ambient>0.225 0.3 0.35 1</ambient>
+					<diffuse>0.45 0.6 0.7 1</diffuse>
+					<specular>0.2 0.2 0.2 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__guide_rods_visual_7'>
+				<pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/guide_rods.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__guide_rods_visual_8_MATERIAL_</name>
+					</script>
+					<ambient>0.225 0.3 0.35 1</ambient>
+					<diffuse>0.45 0.6 0.7 1</diffuse>
+					<specular>0.2 0.2 0.2 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__navigation_pole_visual_8'>
+				<pose frame=''>-0.508 -0.05 1.43 3.14159 1.57079 3.14159</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/navigation_pole.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__navigation_pole_visual_9_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__ledport_visual_9'>
+				<pose frame=''>0.48 -0.046 1.48 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/base_led.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__navigation_pole_visual_9_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='mast_fixed_joint_lump__ledstarboard_visual_10'>
+				<pose frame=''>-0.52 -0.046 1.48 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/base_led.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__navigation_pole_visual_9_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual> -->
+			<visual name='mast_visual'>
+        <pose frame=''>-0.237500 0.175 0.0 1.570800 0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/mast_pole.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__blue_board_visual_1'>
+        <pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/blue_board.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+
+      <visual name='mast_fixed_joint_lump__name_plate_visual_2'>
+        <pose frame=''>-0.01 -0.132794 1.13382 -4e-06 3.14 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/name_plate.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__rod_supporter_visual_3'>
+        <pose frame=''>-0.01 -0.13 1.05 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/rod_holder.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__guide_rods_visual_7'>
+        <pose frame=''>-0.2417 0.20 -0.097600 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/guide_rods.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__navigation_pole_visual_8'>
+        <pose frame=''>-0.508 -0.05 1.43 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/navigation_pole.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__ledport_visual_9'>
+        <pose frame=''>-0.50 -0.046 1.4075 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/led_holder.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='mast_fixed_joint_lump__ledstarboard_visual_10'>
+        <pose frame=''>0.5 -0.046 1.4075 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/led_holder.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+			<sensor name='proxy' type='ray'>
+				<update_rate>50</update_rate>
+				<ray>
+					<scan>
+						<horizontal>
+							<samples>1</samples>
+							<resolution>1</resolution>
+							<min_angle>-0.01</min_angle>
+							<max_angle>0.01</max_angle>
+						</horizontal>
+						<vertical>
+							<samples>1</samples>
+							<resolution>1</resolution>
+							<min_angle>-0.01</min_angle>
+							<max_angle>0.01</max_angle>
+						</vertical>
+					</scan>
+					<range>
+						<min>0.01</min>
+						<max>3.75</max>
+						<resolution>0.02</resolution>
+					</range>
+				</ray>
+				<plugin name='gazebo_ros_range' filename='libgazebo_ros_range.so'>
+					<gaussianNoise>0.005</gaussianNoise>
+					<alwaysOn>1</alwaysOn>
+					<updateRate>5</updateRate>
+					<topicName>/hunter_killer_mast/proxy_sensor</topicName>
+					<frameName>buax</frameName>
+					<visualize>1</visualize>
+					<radiation>infrared</radiation>
+					<fov>0.02</fov>
+				</plugin>
+				<pose frame=''>-0.01 -0.16 1.08 1.5708 -0 -1.5708</pose>
+			</sensor>
+		</link>
+
+		<link name='communication_module'>
+			<pose frame=''>0.0027 -0.18554 1.1 0.053011 3e-06 -1.5708</pose>
+			<inertial>
+				<pose frame=''>0.014039 -0.012654 0.001175 0 -0 0</pose>
+				<mass>0.354025</mass>
+				<inertia>
+          <ixx>0.0122297</ixx>
+          <ixy>5.11552e-06</ixy>
+          <ixz>9.62719e-05</ixz>
+          <iyy>0.000424853</iyy>
+          <iyz>0.000628333</iyz>
+          <izz>0.012215</izz>
+        </inertia>
+			</inertial>
+			<collision name='communication_module_collision'>
+        <pose frame=''>-0.025 -0.497 -0.014 1.570796 0.05 1.570796</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/module_4.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+           <contact>
+            <collide_bitmask>40</collide_bitmask>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+           </contact>
+           <bounce/>
+           <friction>
+             <ode>
+               <mu>0.85</mu>
+               <mu2>0.85</mu2>
+             </ode>
+             <torsional>
+               <ode/>
+             </torsional>
+             <ode/>
+           </friction>
+        </surface>
+      </collision>
+			<!-- <visual name='communication_module_visual'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/communication_module.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__communication_module_visual_5_MATERIAL_</name>
+					</script>
+					<ambient>0.225 0.3 0.35 1</ambient>
+					<diffuse>0.45 0.6 0.7 1</diffuse>
+					<specular>0.2 0.2 0.2 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='communication_module_fixed_joint_lump__antena_visual_1'>
+				<pose frame=''>0.01604 0.43133 -0.020359 3.0885 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/antena.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__antena_visual_6_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual>
+			<visual name='communication_module_fixed_joint_lump__exposed_plate_visual_2'>
+				<pose frame=''>0.0516 -0.012682 0.000673 0 1.5177 -1.5708</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/exposed_plate.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>_default_</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump_antena_visual_6_MATERIAL</name>
+					</script>
+					<ambient>1 0 0 1</ambient>
+					<diffuse>1 0 0 1</diffuse>
+					<specular>1 0 0 1</specular>
+					<emissive>1 0 0 1</emissive>
+				</material>
+			</visual> -->
+			<visual name='communication_module_visual'>
+        <pose frame=''>0.0125 -0.0125 0 -0.05 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/communication_module.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='communication_module_fixed_joint_lump__antena_visual_1'>
+        <pose frame=''>0.01604 0.43133 -0.020359 3.0885 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/antenna.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='communication_module_fixed_joint_lump__exposed_plate_visual_2'>
+        <pose frame=''>0.0516 -0.012682 0.000673 0 1.5177 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/exposed_plate.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+			<shader type='vertex'>
+				<normal_map>_default_</normal_map>
+			</shader>
+			<script>
+				<name>ModelPreview_1::base::base_fixed_joint_lump_antena_visual_6_MATERIAL</name>
+			</script>
+			<ambient>1 0 0 1</ambient>
+			<diffuse>1 0 0 1</diffuse>
+			<specular>1 0 0 1</specular>
+			<emissive>1 0 0 1</emissive>
+		</material>
+      </visual>
+			<self_collide>1</self_collide>
+		</link>
+
+		#Iss joint ko gayab bhi kar sakte ho ya fixed bhi rakh sakte ho..
+		#Agar gayab karna hoga toh comment out karna ye snippet udaana mat
+
+		<!--joint name='communication_module_joint' type='fixed'>
+			<child>communication_module</child>
+			<parent>mast</parent>
+			<axis>
+				<xyz>0 -1 0</xyz>
+				<limit>
+					<lower>0</lower>
+					<upper>1</upper>
+					<effort>10</effort>
+					<velocity>1</velocity>
+				</limit>
+				<dynamics>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint-->
+
+		<joint name='pitch_joint' type='revolute'>
+			<child>mast</child>
+			<parent>base</parent>
+			<axis>
+				<xyz>0 1 0</xyz>
+				<limit>
+					<lower>-0.2</lower>
+					<upper>0.2</upper>
+					<effort>1000</effort>
+					<velocity>0.5</velocity>
+				</limit>
+				<dynamics>
+					<damping>10</damping>
+					<friction>1</friction>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint>
+
+		<link name='hemi1l'>
+			<pose frame=''>0.499003 -0.046 1.5028 1.5708 -0 -1.4136</pose>
+			<inertial>
+				<pose frame=''>0.003137 0 0.000497 0 -0 0</pose>
+				<mass>0.03418</mass>
+				<inertia>
+					<ixx>0.000356543</ixx>
+					<ixy>6.61061e-10</ixy>
+					<ixz>1.58901e-15</ixz>
+					<iyy>0.00054688</iyy>
+					<iyz>2.2761e-10</iyz>
+					<izz>0.000356543</izz>
+				</inertia>
+			</inertial>
+			<collision name='hemi1l_collision'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi1.STL</uri>
+					</mesh>
+				</geometry>
+				<surface>
+					<contact>
+						<ode/>
+					</contact>
+					<friction>
+						<ode/>
+					</friction>
+				</surface>
+			</collision>
+			<collision name='hemi1l_fixed_joint_lump__hemi2l_collision_1'>
+				<pose frame=''>0.003137 0 0.000497 -3.14159 1.2392 -0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi2.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<!-- <visual name='hemi1l_visual'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi1.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<ambient>0.1 0.1 0.1 1</ambient>
+					<diffuse>0.1 0.1 0.1 1</diffuse>
+					<specular>0 1 0 1</specular>
+					<emissive>0 1 0 1</emissive>
+				</material> 
+			</visual>
+			<visual name='hemi1l_fixed_joint_lump__hemi2l_visual_1'>
+				<pose frame=''>0.003137 0 0.000497 -3.14159 1.2392 -0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi2.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<ambient>0.7 0.8 0.7 0.9</ambient>
+					<diffuse>0.7 0.8 0.7 0.9</diffuse>
+					<specular>1 1 1 0.9</specular>
+					<emissive>0 0 0 0</emissive>
+				</material> 
+			</visual> -->
+			<visual name='hemi1l_visual'>
+		        <pose frame=''>0.003137 0 0.000497 -1.570800 -0 0</pose>
+		        <geometry>
+		          <mesh>
+		            <scale>1 1 1</scale>
+		            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/no_led.dae</uri>
+		          </mesh>
+		        </geometry>
+		      </visual>
+		      <visual name='hemi1l_fixed_joint_lump__hemi2l_visual_1'>
+		        <pose frame=''>0.003137 0 0.000497 1.5708 0 -0</pose>
+		        <geometry>
+		          <mesh>
+		            <scale>1 1 1</scale>
+		            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/green_led.dae</uri>
+		          </mesh>
+		        </geometry>
+		      </visual>
+			<gravity>1</gravity>
+			<velocity_decay/>
+		</link>
+
+		<joint name='hemi1l_joint' type='revolute'>
+			<child>hemi1l</child>
+			<parent>mast</parent>
+			<axis>
+				<xyz>0.015655 -0.098767 0</xyz>
+				<limit>
+					<lower>0</lower>
+					<upper>3.1416</upper>
+					<effort>10</effort>
+					<velocity>10</velocity>
+				</limit>
+				<dynamics>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint>
+
+		<link name='hemi1r'>
+			<pose frame=''>-0.500997 -0.046 1.5028 1.5708 -0 -1.4136</pose>
+			<inertial>
+				<pose frame=''>0.003137 0 0.000497 0 -0 0</pose>
+				<mass>0.03418</mass>
+				<inertia>
+					<ixx>0.000356543</ixx>
+					<ixy>6.61061e-10</ixy>
+					<ixz>1.58901e-15</ixz>
+					<iyy>0.00054688</iyy>
+					<iyz>2.2761e-10</iyz>
+					<izz>0.000356543</izz>
+				</inertia>
+			</inertial>
+			<collision name='hemi1r_collision'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi1.STL</uri>
+					</mesh>
+				</geometry>
+				<surface>
+					<contact>
+						<ode/>
+					</contact>
+					<friction>
+						<ode/>
+					</friction>
+				</surface>
+			</collision>
+			<collision name='hemi1r_fixed_joint_lump__hemi2r_collision_1'>
+				<pose frame=''>0.003137 0 0.000497 -3.14159 1.2392 -0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi2.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<!-- <visual name='hemi1r_visual'>
+				<pose frame=''>0 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi1.STL</uri>
+					</mesh>
+				</geometry>
+				<material>					<ambient>0.1 0.1 0.1 1</ambient>
+					<diffuse>0.1 0.1 0.1 1</diffuse>
+					<specular>1 0 0 1</specular>
+					<emissive>1 0 0 1</emissive>
+				</material> 
+			</visual>
+			<visual name='hemi1r_fixed_joint_lump__hemi2r_visual_1'>
+				<pose frame=''>0.003137 0 0.000497 -3.14159 1.2392 -0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/hemi2.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<ambient>0.8 0.7 0.7 0.9</ambient>
+					<diffuse>0.8 0.7 0.7 0.9</diffuse>
+					<specular>1 1 1 0.9</specular>
+					<emissive>0 0 0 0</emissive>
+				</material> 
+			</visual> -->
+			<visual name='hemi1r_visual'>
+        <pose frame=''>0.003137 0 0.000497 -1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/no_led.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='hemi1r_fixed_joint_lump__hemi2r_visual_1'>
+        <pose frame=''>0.003137 0 0.000497 1.5708 0 -0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/red_led.dae</uri>
+          </mesh>
+        </geometry>
+
+      </visual>
+			<gravity>1</gravity>
+			<velocity_decay/>
+		</link>
+		<joint name='hemi1r_joint' type='revolute'>
+			<child>hemi1r</child>
+			<parent>mast</parent>
+			<axis>
+				<xyz>0.015655 -0.098767 0</xyz>
+				<limit>
+					<lower>0</lower>
+					<upper>3.1416</upper>
+					<effort>10</effort>
+					<velocity>10</velocity>
+				</limit>
+				<dynamics>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint>
+		<link name='pankha'>
+			<pose frame=''>0 -0.03 2.1 0 -0 0</pose>
+			<inertial>
+				<pose frame=''>0 0 -0 0 -0 0</pose>
+				<mass>3.73075</mass>
+				<inertia>
+					<ixx>0.0101974</ixx>
+					<ixy>0</ixy>
+					<ixz>8.84709e-18</ixz>
+					<iyy>0.326023</iyy>
+					<iyz>5.60136e-20</iyz>
+					<izz>0.326023</izz>
+				</inertia>
+			</inertial>
+			<collision name='pankha_collision'>
+				<pose frame=''>-0.508 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/pankha.STL</uri>
+					</mesh>
+				</geometry>
+			</collision>
+			<!-- <visual name='pankha_visual'>
+				<pose frame=''>-0.508 0 0 0 -0 0</pose>
+				<geometry>
+					<mesh>
+						<scale>1 1 1</scale>
+						<uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/pankha.STL</uri>
+					</mesh>
+				</geometry>
+				<material>
+					<shader type='vertex'>
+						<normal_map>__default__</normal_map>
+					</shader>
+					<script>
+						<name>ModelPreview_1::base::base_fixed_joint_lump__pankha_visual_10_MATERIAL_</name>
+					</script>
+					<ambient>0.4 0.4 0.4 1</ambient>
+					<diffuse>0.8 0.8 0.8 1</diffuse>
+					<specular>0.4 0.4 0.4 1</specular>
+					<emissive>0 0 0 1</emissive>
+				</material>
+			</visual> -->
+			<visual name='pankha_visual'>
+        <pose frame=''>-0.508 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>/home/student/students/harshil/iarc_ws/src/controls/hunter_killer_mast/meshes/pankha.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+		</link>
+
+		<joint name='pankha_joint' type='revolute'>
+			<child>pankha</child>
+			<parent>mast</parent>
+			<axis>
+				<xyz>0 0 1</xyz>
+				<limit>
+					<lower>-1e+11</lower>
+					<upper>1e+11</upper>
+					<effort>1</effort>
+					<velocity>1</velocity>
+				</limit>
+				<dynamics>
+					<spring_reference>0</spring_reference>
+					<spring_stiffness>0</spring_stiffness>
+				</dynamics>
+				<use_parent_model_frame>1</use_parent_model_frame>
+			</axis>
+		</joint>
+
+		<static>0</static>
+		<plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+			<robotNamespace>/hunter_killer_mast</robotNamespace>
+		</plugin>
+	</model>
+</sdf>
